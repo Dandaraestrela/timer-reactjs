@@ -1,0 +1,24 @@
+import styled, { css } from "styled-components";
+
+export type ButtonVariant = "primary" | "secondary" | "danger" | "success";
+
+interface ButtonContainerProps {
+  variant: ButtonVariant;
+}
+
+const buttonVariants = {
+  primary: "purple",
+  secondary: "orange",
+  danger: "red",
+  success: "green",
+};
+
+export const ButtonWrapper = styled.button<ButtonContainerProps>`
+  width: 100px;
+  height: 100px;
+  color: ${({ theme }) => theme.green_500};
+  ${({ variant }) =>
+    css`
+      background-color: ${buttonVariants[variant]};
+    `};
+`;
